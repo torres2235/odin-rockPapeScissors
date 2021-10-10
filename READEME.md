@@ -1,0 +1,1 @@
+This is my Rock Paper Scissors JS project from the OdinProject

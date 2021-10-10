@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <script>
+        function computerPlay() {
+            let choice = Math.floor(Math.random() * 3); //choice is randomly picked to be a number between 0 and 2
+            let toss;
+            //console.log(choice);
+
+            switch(choice) {
+                case 0:
+                    toss = "Rock";
+                    break;
+                
+                case 1:
+                    toss = "Paper";
+                    break;
+                
+                case 2:
+                    toss = "Scissors";
+            }
+            //console.log(toss);
+            return toss;
+        }
+
+        function playRound(playerSelection = "Invalid", computerSelection) {
+
+            computerSelection = computerPlay();
+            //console.log(computerSelection);
+
+            playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase(); //ensures only first letter is capitalized
+            //console.log(playerSelection);
+            switch(playerSelection)
+        }
+    </script>
+</body>
+</html>
