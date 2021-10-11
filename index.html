@@ -24,19 +24,68 @@
                 
                 case 2:
                     toss = "Scissors";
+                    break;
             }
             //console.log(toss);
             return toss;
         }
 
-        function playRound(playerSelection = "Invalid", computerSelection) {
+        function game(playerSelection = "Invalid") {
 
-            computerSelection = computerPlay();
-            //console.log(computerSelection);
+            for(let i = 0; i < 5; i++) {
+                function playRound(playerSelection, computerSelection) {
 
-            playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase(); //ensures only first letter is capitalized
-            //console.log(playerSelection);
-            switch(playerSelection)
+                    computerSelection = computerPlay();
+                    //console.log(computerSelection);
+
+                    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase(); //ensures only first letter is capitalized
+                    //console.log(playerSelection);
+
+                    switch(playerSelection) {
+                        case "Rock":
+                            if (playerSelection == computerSelection) {
+                                return("Draw! " + playerSelection + " ties " + computerSelection);
+                                break;
+                            } else if (computerSelection == "Paper") {
+                                return("You lose! " + computerSelection + " beats " + playerSelection);
+                                break;
+                            } else if (computerSelection == "Scissors") {
+                                return("You win! " + playerSelection + " beats " + computerSelection);
+                                break;
+                            }
+                        
+                            case "Paper":
+                            if (playerSelection == computerSelection) {
+                                return("Draw! " + playerSelection + " ties " + computerSelection);
+                                break;
+                            } else if (computerSelection == "Scissors") {
+                                return("You lose! " + computerSelection + " beats " + playerSelection);
+                                break;
+                            } else if (computerSelection == "Rock") {
+                                return("You win! " + playerSelection + " beats " + computerSelection);
+                                break;
+                            }
+
+                            case "Scissors":
+                            if (playerSelection == computerSelection) {
+                                return("Draw! " + playerSelection + " ties " + computerSelection);
+                                break;
+                            } else if (computerSelection == "Rock") {
+                                return("You lose! " + computerSelection + " beats " + playerSelection);
+                                break;
+                            } else if (computerSelection == "paper") {
+                                return("You win! " + playerSelection + " beats " + computerSelection);
+                                break;
+                            }
+
+                            default:
+                                return("Invalid player input. Please choose \"rock\", \"paper\", or \"scissors\". ");
+                                break;
+                    }
+                }
+
+                console.log(playRound(playerSelection));    
+            }
         }
     </script>
 </body>
