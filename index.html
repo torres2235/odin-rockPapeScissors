@@ -10,17 +10,18 @@
 <body>
 
     <h1>Let's Play Rock, Paper, Scissors!</h1>
+    <div class = "score">
+        <h2 id = "playerScore">0</h2>
+        <h2 id = "computerScore">0</h2>
+    </div>
+
     <div class = "buttons">
         <input id = "rock" Name = "rock" type = "image" src = "images/rock.png">
         <input  id = "paper" Name = "paper" type = "image" src = "images/Paper.png">
         <input  id = "scissors" Name = "scissors" type = "image" src = "images/Scissors.png">
-
-        <!--
-        <button id = "rock">Rock</button>
-        <button id = "paper">Paper</button>
-        <button id = "scissors">Scissors</button>
-        -->
     </div>
+
+    <div id = "prompt">Make a selection.</div>
 
 <!-- ---------------------------------------- -->
     <script>
@@ -46,9 +47,12 @@
             return toss;
         }
 
+        let playerScore = 0;
+        let computerScore = 0;
         function game(playerSelection = "Invalid") {
 
-            //for(let i = 0; i < 5; i++) {
+            //only play if the player or computer have not reached 5 wins.
+            if(playerScore < 5 && computerScore < 5) {
                 function playRound(playerSelection, computerSelection) {
 
                     computerSelection = computerPlay();
@@ -63,9 +67,11 @@
                                 return("Draw! " + playerSelection + " ties " + computerSelection);
                                 break;
                             } else if (computerSelection == "Paper") {
+                                computerScore++;
                                 return("You lose! " + computerSelection + " beats " + playerSelection);
                                 break;
                             } else if (computerSelection == "Scissors") {
+                                playerScore++;
                                 return("You win! " + playerSelection + " beats " + computerSelection);
                                 break;
                             }
@@ -75,9 +81,11 @@
                                 return("Draw! " + playerSelection + " ties " + computerSelection);
                                 break;
                             } else if (computerSelection == "Scissors") {
+                                computerScore++;
                                 return("You lose! " + computerSelection + " beats " + playerSelection);
                                 break;
                             } else if (computerSelection == "Rock") {
+                                playerScore++;
                                 return("You win! " + playerSelection + " beats " + computerSelection);
                                 break;
                             }
@@ -87,9 +95,11 @@
                                 return("Draw! " + playerSelection + " ties " + computerSelection);
                                 break;
                             } else if (computerSelection == "Rock") {
+                                computerScore++;
                                 return("You lose! " + computerSelection + " beats " + playerSelection);
                                 break;
-                            } else if (computerSelection == "paper") {
+                            } else if (computerSelection == "Paper") {
+                                playerScore++;
                                 return("You win! " + playerSelection + " beats " + computerSelection);
                                 break;
                             }
@@ -99,9 +109,21 @@
                                 break;
                     }
                 }
+                
+                //updates our prompt to show if the player wins or loses
+                document.querySelector('#prompt').innerHTML = playRound(playerSelection);
 
-                console.log(playRound(playerSelection));    
-            //}
+                //updates our scores
+                document.querySelector('#playerScore').innerHTML = playerScore;
+                document.querySelector('#computerScore').innerHTML = computerScore;
+
+            //if either the player or computer wins, update prompt
+            } else if (playerScore >= 5) {
+                document.querySelector('#prompt').innerHTML = "Player Wins!";
+            } else {
+                document.querySelector('#prompt').innerHTML = "Computer Wins!";
+            }
+
         }
 
         //button functionality below

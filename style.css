@@ -6,12 +6,18 @@ body {
 h1 {
     display: flex;
     justify-content: center;
-    margin-bottom: 100px;
 }
-.buttons {
+
+.buttons,
+.score {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.score {
+    margin-bottom: 50px;
+    font-size: larger;
 }
 
 input {
