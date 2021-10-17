@@ -22,6 +22,7 @@
     </div>
 
     <div id = "prompt">Make a selection.</div>
+    <button id = "reset">Reset</button>
 
 <!-- ---------------------------------------- -->
     <script>
@@ -140,6 +141,17 @@
         const scissors = document.querySelector('#scissors');
         scissors.addEventListener('click', function(e) {
             game("Scissors");
+        });
+
+        //resets game
+        const reset = document.querySelector('#reset');
+        reset.addEventListener('click', function(e) {
+            playerScore = 0;
+            computerScore = 0;
+            document.querySelector('#playerScore').innerHTML = playerScore;
+            document.querySelector('#computerScore').innerHTML = computerScore;
+            document.querySelector('#prompt').innerHTML = "Make a selection";
+            
         });
 
     </script>
