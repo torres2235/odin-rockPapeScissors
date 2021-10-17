@@ -11,9 +11,15 @@
 
     <h1>Let's Play Rock, Paper, Scissors!</h1>
     <div class = "buttons">
-        <button>Rock</button>
-        <button>Paper</button>
-        <button>Scissors</button>
+        <input id = "rock" Name = "rock" type = "image" src = "images/rock.png">
+        <input  id = "paper" Name = "paper" type = "image" src = "images/Paper.png">
+        <input  id = "scissors" Name = "scissors" type = "image" src = "images/Scissors.png">
+
+        <!--
+        <button id = "rock">Rock</button>
+        <button id = "paper">Paper</button>
+        <button id = "scissors">Scissors</button>
+        -->
     </div>
 
 <!-- ---------------------------------------- -->
@@ -42,7 +48,7 @@
 
         function game(playerSelection = "Invalid") {
 
-            for(let i = 0; i < 5; i++) {
+            //for(let i = 0; i < 5; i++) {
                 function playRound(playerSelection, computerSelection) {
 
                     computerSelection = computerPlay();
@@ -95,8 +101,25 @@
                 }
 
                 console.log(playRound(playerSelection));    
-            }
+            //}
         }
+
+        //button functionality below
+        const rock = document.querySelector('#rock');
+        rock.addEventListener('click', function(e) {
+            game("Rock");
+        });
+
+        const paper = document.querySelector('#paper');
+        paper.addEventListener('click', function(e) {
+            game("Paper");
+        });
+
+        const scissors = document.querySelector('#scissors');
+        scissors.addEventListener('click', function(e) {
+            game("Scissors");
+        });
+
     </script>
 </body>
 </html>

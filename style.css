@@ -1,11 +1,12 @@
 body {
-    background-color: #ffbbba3);
+    background-color: #ffbea7;
     color: white;
 }
 
 h1 {
     display: flex;
     justify-content: center;
+    margin-bottom: 100px;
 }
 .buttons {
     display: flex;
@@ -13,7 +14,7 @@ h1 {
     justify-content: space-evenly;
 }
 
-button {
-    height: 200px;
+input {
+    height: 250px;
     width: 200px;
 }
